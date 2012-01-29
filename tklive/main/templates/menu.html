@@ -1,0 +1,12 @@
+{% load url from future %}
+<ul class="menu">
+    {% for element in MENU %}
+        {% if element.name == "" %}
+            <li class="notimplemented">{{ element.title }}</li>
+        {% else %}
+            <li {% if url_name == element.name %}class="active"{% endif %}>
+                <a href="{% url element.name %}">{{ element.title }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>

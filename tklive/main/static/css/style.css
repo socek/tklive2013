@@ -3,7 +3,6 @@ ul.menu {
     margin: 0 0 5px 0;
     padding: 0;
 }
-
 ul.menu li {
     display: inline;
     border: double 1px black;
@@ -11,17 +10,14 @@ ul.menu li {
     padding: 2px 5px;
     color: black;
 }
-
 ul.menu li:hover {
     background-color: green;
     color: white;
 }
-
 ul.menu li.active {
     background-color: red;
     color: yellow;
 }
-
 ul.menu li a, ul.menu li a:active, ul.menu li a:visited{
     text-decoration: none;
     color: inherit;
@@ -30,4 +26,25 @@ ul.menu li a, ul.menu li a:active, ul.menu li a:visited{
 .notimplemented, .notimplemented:hover {
     color: black;
     background-color: grey !important;
+}
+
+ul.posts {
+    list-style: none;
+    margin: 15px 0 0 15px;
+    padding: 0;
+    width:600px;
+}
+ul.posts li {
+    margin-top: 15px;
+    border: solid 2px green;
+}
+ul.posts li div.pub_date {
+    float: right;
+}
+ul.posts li div.author {
+    float: left;
+}
+ul.posts li div.text {
+    clear: both;
+    padding: 5px 0 0 15px;
 }

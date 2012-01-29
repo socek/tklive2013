@@ -112,6 +112,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     MAIN_DIR + '/main/templates',
+    MAIN_DIR + '/mikroblog/templates',
 )
 
 INSTALLED_APPS = (

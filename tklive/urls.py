@@ -1,13 +1,14 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 import main.views as main
+import mikroblog.views as mikroblog
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
      url(r'^$', main.HomeView.as_view(), name='home'),
-     url(r'^blog/$', main.HomeView.as_view(), name='blog'),
+     url(r'^blog/$', mikroblog.BlogView.as_view(), name='blog'),
     # url(r'^mysite/', include('mysite.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
