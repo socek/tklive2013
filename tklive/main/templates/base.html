@@ -1,0 +1,23 @@
+{% load url from future %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+    <head>
+        <title>Memoriał - aktualne dane</title>
+        <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
+    </head>
+    <body>
+        <ul class="menu">
+            {% for element in MENU %}
+                {% if element.name == "" %}
+                    <li class="notimplemented">{{ element.title }}</li>
+                {% else %}
+                    <li {% if url_name == element.name %}class="active"{% endif %}>
+                        <a href="{% url element.name %}">{{ element.title }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        {% block body %}{% endblock %}
+    </body>
+</html>
+
