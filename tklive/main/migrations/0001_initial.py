@@ -8,82 +8,17 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
         
-        # Adding model 'Team'
-        db.create_table('main_team', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
-        ))
-        db.send_create_signal('main', ['Team'])
-
-        # Adding model 'Player'
-        db.create_table('main_player', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('team', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['main.Team'])),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('surname', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('number', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
-            ('staus', self.gf('django.db.models.fields.CharField')(default='player', max_length=10)),
-        ))
-        db.send_create_signal('main', ['Player'])
-
-        # Adding model 'Place'
-        db.create_table('main_place', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
-        ))
-        db.send_create_signal('main', ['Place'])
-
-        # Adding model 'Quart'
-        db.create_table('main_quart', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('team_1_points', self.gf('django.db.models.fields.IntegerField')()),
-            ('team_2_points', self.gf('django.db.models.fields.IntegerField')()),
-        ))
-        db.send_create_signal('main', ['Quart'])
-
-        # Adding model 'Match'
-        db.create_table('main_match', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('place', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['main.Place'])),
-            ('quart_1_d1', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
-            ('quart_2_d1', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
-            ('quart_3_d1', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
-            ('quart_4_d1', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
-            ('quart_1_d2', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
-            ('quart_2_d2', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
-            ('quart_3_d2', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
-            ('quart_4_d2', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
-            ('team_1', self.gf('django.db.models.fields.related.ForeignKey')(related_name='t1', to=orm['main.Team'])),
-            ('team_2', self.gf('django.db.models.fields.related.ForeignKey')(related_name='t2', to=orm['main.Team'])),
-        ))
-        db.send_create_signal('main', ['Match'])
-
         # Adding model 'UserProfile'
         db.create_table('main_userprofile', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('user', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['auth.User'], unique=True)),
-            ('default_place', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['main.Place'], null=True, blank=True)),
+            ('default_place', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['scores.Place'], null=True)),
         ))
         db.send_create_signal('main', ['UserProfile'])
 
 
     def backwards(self, orm):
         
-        # Deleting model 'Team'
-        db.delete_table('main_team')
-
-        # Deleting model 'Player'
-        db.delete_table('main_player')
-
-        # Deleting model 'Place'
-        db.delete_table('main_place')
-
-        # Deleting model 'Quart'
-        db.delete_table('main_quart')
-
-        # Deleting model 'Match'
-        db.delete_table('main_match')
-
         # Deleting model 'UserProfile'
         db.delete_table('main_userprofile')
 
@@ -125,51 +60,16 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
-        'main.match': {
-            'Meta': {'object_name': 'Match'},
+        'main.userprofile': {
+            'Meta': {'object_name': 'UserProfile'},
+            'default_place': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['scores.Place']", 'null': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'place': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['main.Place']"}),
-            'quart_1_d1': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'quart_1_d2': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'quart_2_d1': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'quart_2_d2': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'quart_3_d1': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'quart_3_d2': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'quart_4_d1': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'quart_4_d2': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'team_1': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'t1'", 'to': "orm['main.Team']"}),
-            'team_2': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'t2'", 'to': "orm['main.Team']"})
+            'user': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['auth.User']", 'unique': 'True'})
         },
-        'main.place': {
+        'scores.place': {
             'Meta': {'object_name': 'Place'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
-        },
-        'main.player': {
-            'Meta': {'object_name': 'Player'},
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'number': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'staus': ('django.db.models.fields.CharField', [], {'default': "'player'", 'max_length': '10'}),
-            'surname': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'team': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['main.Team']"})
-        },
-        'main.quart': {
-            'Meta': {'object_name': 'Quart'},
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'team_1_points': ('django.db.models.fields.IntegerField', [], {}),
-            'team_2_points': ('django.db.models.fields.IntegerField', [], {})
-        },
-        'main.team': {
-            'Meta': {'object_name': 'Team'},
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
-        },
-        'main.userprofile': {
-            'Meta': {'object_name': 'UserProfile'},
-            'default_place': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['main.Place']", 'null': 'True', 'blank': 'True'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'user': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['auth.User']", 'unique': 'True'})
         }
     }
 
