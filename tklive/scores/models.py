@@ -65,3 +65,4 @@ class Match(models.Model):
     match_number = models.IntegerField('Numer meczu')
     
     staus = models.CharField(u'Status', max_length=10, choices=match_status, default='before')
+    date = models.DateTimeField(u'data meczu')

@@ -40,6 +40,7 @@ class Migration(DataMigration):
             'tabel'         : 'a',
             'tt1'           : 'przyjaciele',
             'tt2'           : 'kutna',
+            'date'          : datetime.datetime(2012, 3, 1, 17, 15),
         })
         tabs.append({
             'match_number'  : 2,
@@ -47,6 +48,7 @@ class Migration(DataMigration):
             'tabel'         : 'a',
             'tt1'           : 'nauczyciele',
             'tt2'           : 'bekescaba',
+            'date'          : datetime.datetime(2012, 3, 1, 18, 45),
         })
         
         tabs.append({
@@ -55,6 +57,7 @@ class Migration(DataMigration):
             'tabel'         : 'a',
             'tt1'           : 'przyjaciele',
             'tt2'           : 'bernburg',
+            'date'          : datetime.datetime(2012, 3, 1, 20, 15),
         })
         
         tabs.append({
@@ -63,6 +66,7 @@ class Migration(DataMigration):
             'tabel'         : 'b',
             'tt1'           : 'machina',
             'tt2'           : 'boguszow',
+            'date'          : datetime.datetime(2012, 3, 1, 18, 00),
         })
         
         tabs.append({
@@ -71,6 +75,7 @@ class Migration(DataMigration):
             'tabel'         : 'b',
             'tt1'           : 'serock',
             'tt2'           : 'tgteam',
+            'date'          : datetime.datetime(2012, 3, 1, 19, 30),
         })
         
         tabs.append({
@@ -79,6 +84,7 @@ class Migration(DataMigration):
             'tabel'         : 'a',
             'tt1'           : 'nauczyciele',
             'tt2'           : 'kutna',
+            'date'          : datetime.datetime(2012, 3, 2, 9, 00),
         })
         
         tabs.append({
@@ -87,6 +93,7 @@ class Migration(DataMigration):
             'tabel'         : 'a',
             'tt1'           : 'bekescaba',
             'tt2'           : 'bernburg',
+            'date'          : datetime.datetime(2012, 3, 2, 10, 30),
         })
         
         tabs.append({
@@ -95,6 +102,7 @@ class Migration(DataMigration):
             'tabel'         : 'a',
             'tt1'           : 'nauczyciele',
             'tt2'           : 'przyjaciele',
+            'date'          : datetime.datetime(2012, 3, 2, 12, 00),
         })
         
         tabs.append({
@@ -103,6 +111,7 @@ class Migration(DataMigration):
             'tabel'         : 'a',
             'tt1'           : 'kutna',
             'tt2'           : 'bekescaba',
+            'date'          : datetime.datetime(2012, 3, 2, 13, 30),
         })
         
         tabs.append({
@@ -111,6 +120,7 @@ class Migration(DataMigration):
             'tabel'         : 'a',
             'tt1'           : 'nauczyciele',
             'tt2'           : 'bernburg',
+            'date'          : datetime.datetime(2012, 3, 2, 15, 30),
         })
         
         tabs.append({
@@ -119,6 +129,7 @@ class Migration(DataMigration):
             'tabel'         : 'a',
             'tt1'           : 'bekescaba',
             'tt2'           : 'przyjaciele',
+            'date'          : datetime.datetime(2012, 3, 2, 17, 00),
         })
         
         tabs.append({
@@ -127,6 +138,7 @@ class Migration(DataMigration):
             'tabel'         : 'a',
             'tt1'           : 'bernburg',
             'tt2'           : 'kutna',
+            'date'          : datetime.datetime(2012, 3, 2, 18, 30),
         })
         
         tabs.append({
@@ -135,6 +147,7 @@ class Migration(DataMigration):
             'tabel'         : 'b',
             'tt1'           : 'machina',
             'tt2'           : 'hef',
+            'date'          : datetime.datetime(2012, 3, 2,  9, 00),
         })
         
         tabs.append({
@@ -143,6 +156,7 @@ class Migration(DataMigration):
             'tabel'         : 'b',
             'tt1'           : 'boguszow',
             'tt2'           : 'serock',
+            'date'          : datetime.datetime(2012, 3, 2, 10, 30),
         })
         
         tabs.append({
@@ -151,6 +165,7 @@ class Migration(DataMigration):
             'tabel'         : 'b',
             'tt1'           : 'hef',
             'tt2'           : 'tgteam',
+            'date'          : datetime.datetime(2012, 3, 2, 12, 20),
         })
         
         tabs.append({
@@ -159,6 +174,7 @@ class Migration(DataMigration):
             'tabel'         : 'b',
             'tt1'           : 'machina',
             'tt2'           : 'serock',
+            'date'          : datetime.datetime(2012, 3, 2, 13, 50),
         })
         
         tabs.append({
@@ -167,6 +183,7 @@ class Migration(DataMigration):
             'tabel'         : 'b',
             'tt1'           : 'tgteam',
             'tt2'           : 'boguszow',
+            'date'          : datetime.datetime(2012, 3, 2, 16, 00),
         })
         
         tabs.append({
@@ -175,6 +192,7 @@ class Migration(DataMigration):
             'tabel'         : 'b',
             'tt1'           : 'hef',
             'tt2'           : 'serock',
+            'date'          : datetime.datetime(2012, 3, 2, 17, 30),
         })
         
         tabs.append({
@@ -183,6 +201,7 @@ class Migration(DataMigration):
             'tabel'         : 'b',
             'tt1'           : 'machina',
             'tt2'           : 'tgteam',
+            'date'          : datetime.datetime(2012, 3, 2, 19, 00),
         })
         
         tabs.append({
@@ -191,30 +210,35 @@ class Migration(DataMigration):
             'tabel'         : 'b',
             'tt1'           : 'boguszow',
             'tt2'           : 'hef',
+            'date'          : datetime.datetime(2012, 3, 2, 20, 25),
         })
         
         tabs.append({
             'match_number'  : 21,
             'place'         : 'stas',
             'tabel'         : 'f',
+            'date'          : datetime.datetime(2012, 3, 3,  9, 00),
         })
         
         tabs.append({
             'match_number'  : 22,
             'place'         : 'stas',
             'tabel'         : 'f',
+            'date'          : datetime.datetime(2012, 3, 3, 11, 30),
         })
         
         tabs.append({
             'match_number'  : 23,
             'place'         : 'stas',
             'tabel'         : 'f',
+            'date'          : datetime.datetime(2012, 3, 3, 14, 00),
         })
         
         tabs.append({
             'match_number'  : 24,
             'place'         : 'stas',
             'tabel'         : 'f',
+            'date'          : datetime.datetime(2012, 3, 3, 16, 00),
         })
         
         for object in tabs:
@@ -222,6 +246,7 @@ class Migration(DataMigration):
             m.match_number = object['match_number']
             m.place = places[ object['place'] ]
             m.tabel = tabels[ object['tabel'] ]
+            m.date = object['date']
             if object.has_key('tt1'):
                 m.team_1 = teams[ object['tt1'] ]
                 m.team_2 = teams[ object['tt2'] ]

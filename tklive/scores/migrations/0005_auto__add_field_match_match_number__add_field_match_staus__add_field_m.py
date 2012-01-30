@@ -14,6 +14,9 @@ class Migration(SchemaMigration):
         # Adding field 'Match.staus'
         db.add_column('scores_match', 'staus', self.gf('django.db.models.fields.CharField')(default='before', max_length=10), keep_default=False)
 
+        # Adding field 'Match.date'
+        db.add_column('scores_match', 'date', self.gf('django.db.models.fields.DateTimeField')(default=0), keep_default=False)
+
         # Changing field 'Match.team_1'
         db.alter_column('scores_match', 'team_1_id', self.gf('django.db.models.fields.related.ForeignKey')(null=True, to=orm['scores.Team']))
 
@@ -29,6 +32,9 @@ class Migration(SchemaMigration):
         # Deleting field 'Match.staus'
         db.delete_column('scores_match', 'staus')
 
+        # Deleting field 'Match.date'
+        db.delete_column('scores_match', 'date')
+
         # User chose to not deal with backwards NULL issues for 'Match.team_1'
         raise RuntimeError("Cannot reverse this migration. 'Match.team_1' and its values cannot be restored.")
 
@@ -39,6 +45,7 @@ class Migration(SchemaMigration):
     models = {
         'scores.match': {
             'Meta': {'object_name': 'Match'},
+            'date': ('django.db.models.fields.DateTimeField', [], {}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'match_number': ('django.db.models.fields.IntegerField', [], {}),
             'place': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['scores.Place']"}),
