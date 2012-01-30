@@ -3,6 +3,7 @@ import datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
+from django.contrib.auth.models import User
 
 class Migration(SchemaMigration):
 
@@ -15,10 +16,11 @@ class Migration(SchemaMigration):
             ('default_place', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['scores.Place'], null=True)),
         ))
         db.send_create_signal('main', ['UserProfile'])
+        User.objects.create_superuser(u"admin", u"team.red.dragon@codepill.com", u"admin")
 
 
     def backwards(self, orm):
-        
+        User.objects.get(username='admin').delete()
         # Deleting model 'UserProfile'
         db.delete_table('main_userprofile')
 

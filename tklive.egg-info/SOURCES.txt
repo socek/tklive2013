@@ -23,3 +23,10 @@ tklive/mikroblog/tests.py
 tklive/mikroblog/views.py
 tklive/mikroblog/migrations/0001_initial.py
 tklive/mikroblog/migrations/__init__.py
+tklive/scores/__init__.py
+tklive/scores/admin.py
+tklive/scores/models.py
+tklive/scores/tests.py
+tklive/scores/views.py
+tklive/scores/migrations/0001_initial.py
+tklive/scores/migrations/__init__.py
