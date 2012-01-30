@@ -38,6 +38,12 @@ class Tabel(models.Model):
     def __unicode__(self):
         return self.name
 
+match_status = (
+    ('before', u'Nie rozpoczęto'),
+    ('actual', u'W trakcie'),
+    ('finished', u'Zakończony'),
+)
+
 class Match(models.Model):
     place = models.ForeignKey(Place)
     
@@ -51,7 +57,11 @@ class Match(models.Model):
     quart_3_d2 = models.IntegerField('Drużyna 2', blank=True, null=True)
     quart_4_d2 = models.IntegerField('Drużyna 2', blank=True, null=True)
     
-    team_1 = models.ForeignKey(Team, related_name='t1')
-    team_2 = models.ForeignKey(Team, related_name='t2')
+    team_1 = models.ForeignKey(Team, related_name='t1', blank=True, null=True)
+    team_2 = models.ForeignKey(Team, related_name='t2', blank=True, null=True)
     
     tabel = models.ForeignKey(Tabel)
+    
+    match_number = models.IntegerField('Numer meczu')
+    
+    staus = models.CharField(u'Status', max_length=10, choices=match_status, default='before')
