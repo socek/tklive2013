@@ -13,9 +13,13 @@ MENU = {
     'scores' : {
         'name' : '',
         'title' : 'Wyniki',
+    },
+    'matches' : {
+        'name' : 'matches',
+        'title': u'Mecze',
     }
 }
-CHRONOLOGY=('home', 'mikroblog', 'scores')
+CHRONOLOGY=('home', 'mikroblog', 'matches', 'scores')
 
 _menu = [ MENU[name] for name in CHRONOLOGY ]
 

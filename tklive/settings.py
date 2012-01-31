@@ -113,6 +113,7 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     MAIN_DIR + '/main/templates',
     MAIN_DIR + '/mikroblog/templates',
+    MAIN_DIR + '/scores/templates',
 )
 
 INSTALLED_APPS = (

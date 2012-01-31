@@ -37,6 +37,9 @@ class Tabel(models.Model):
     
     def __unicode__(self):
         return self.name
+    
+    def get_nicename(self):
+        return self.name.replace(' ','_').replace(u'ł', 'l').lower()
 
 match_status = (
     ('before', u'Nie rozpoczęto'),
@@ -66,3 +69,32 @@ class Match(models.Model):
     
     staus = models.CharField(u'Status', max_length=10, choices=match_status, default='before')
     date = models.DateTimeField(u'data meczu')
+    
+    @property
+    def team1_result(self):
+        return self.get_result()[0]
+    
+    @property
+    def team2_result(self):
+        return self.get_result()[1]
+    
+    def get_result(self):
+        t1_result = 0
+        if self.quart_1_d1 != None:
+            t1_result += self.quart_1_d1
+            if self.quart_2_d1 != None:
+                t1_result += self.quart_2_d1
+                if self.quart_3_d1 != None:
+                    t1_result += self.quart_3_d1
+                    if self.quart_4_d1 != None:
+                        t1_result += self.quart_4_d1
+        t2_result = 0
+        if self.quart_1_d1 != None:
+            t2_result += self.quart_1_d2
+            if self.quart_2_d1 != None:
+                t2_result += self.quart_2_d2
+                if self.quart_3_d1 != None:
+                    t2_result += self.quart_3_d2
+                    if self.quart_4_d1 != None:
+                        t2_result += self.quart_4_d2
+        return t1_result, t2_result

@@ -48,3 +48,60 @@ ul.posts li div.text {
     clear: both;
     padding: 5px 0 0 15px;
 }
+
+ul.matches {
+    list-style: none;
+    margin: 15px 0 0 15px;
+    padding: 0;
+    width:600px;
+}
+ul.matches li {
+    margin-top: 15px;
+    border: solid 2px green;
+}
+ul.matches li div.pub_date {
+    border-right: solid 2px green;
+    border-bottom: solid 2px green;
+    float: left;
+    width: 100%;
+}
+ul.matches li div.pub_date.red {
+    background-color: red;
+}
+ul.matches li div.pub_date.grey {
+    background-color: grey;
+}
+ul.matches li div.place {
+    border-right: solid 2px green;
+    border-bottom: solid 2px green;
+    clear: both;
+    float: left;
+    width: 502px;
+}
+ul.matches li div.tabel {
+    border-bottom: solid 2px green;
+    float: left;
+    width: 92px;
+}
+ul.matches li div.tabel.grupa_a {
+    background-color: green;
+    color: white;
+}
+ul.matches li div.tabel.grupa_b {
+    background-color: yellow;
+    
+}
+ul.matches li div.tabel.finaly {
+    background-color: red;
+    color: yellow;
+}
+ul.matches li table.scores {
+    /*border: solid 1px black;*/
+    width: 100%;
+}
+ul.matches li table.scores td {
+    border: solid 1px black;
+}
+ul.matches li table.scores td.teamname {
+    width: 220px;
+}

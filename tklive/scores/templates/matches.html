@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load matches %}
+{% block body %}
+    <ul class="matches">
+        {% for match in matches%}
+            <li>
+                {% if match.staus == "before" %}
+                    <div class="pub_date">Data meczu: {{match.date}}</div>
+                {% else %}{% if match.staus == "actual" %}
+                    <div class="pub_date red">Mecz aktualnie rozgrywany!</div>
+                {% else %}{% if match.staus == "finished" %}
+                    <div class="pub_date grey">Zakończony</div>
+                {% endif %}{% endif %}{% endif %}
+                <div class="place">Miejsce: {{match.place.name}}</div>
+                <div class="tabel {{match.tabel.get_nicename}}">{{match.tabel.name}}</div>
+                {% if match.team_1 != None %}
+                    <table class="scores">
+                        <tr>
+                            <td class="teamname">Drużyna</td>
+                            <td>Kwarta 1</td>
+                            <td>Kwarta 2</td>
+                            <td>Kwarta 3</td>
+                            <td>Kwarta 4</td>
+                        </tr>
+                        <tr>
+                            <td class="teamname">{{match.team_1.name}}</td>
+                            <td>{{match|team1_result:1}}</td>
+                            <td>{{match|team1_result:2}}</td>
+                            <td>{{match|team1_result:3}}</td>
+                            <td>{{match|team1_result:4}}</td>
+                        </tr>
+                        <tr>
+                            <td class="teamname">{{match.team_2.name}}</td>
+                            <td>{{match|team2_result:1}}</td>
+                            <td>{{match|team2_result:2}}</td>
+                            <td>{{match|team2_result:3}}</td>
+                            <td>{{match|team2_result:4}}</td>
+                        </tr>
+                    </table>
+                {% else %}
+                    Drużyny jeszcze nie znane.
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}  
