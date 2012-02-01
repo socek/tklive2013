@@ -6,10 +6,6 @@ MENU = {
         'name' : 'blog',
         'title' : 'Mikroblog',
     },
-    'home' : {
-        'name' : 'home',
-        'title' : 'Home',
-    },
     'scores' : {
         'name' : '',
         'title' : 'Wyniki',
@@ -17,9 +13,17 @@ MENU = {
     'matches' : {
         'name' : 'matches',
         'title': u'Mecze',
+    },
+    'matches_actual' : {
+        'name' : 'matches_actual',
+        'title': u'Aktualnie grane mecze',
+    },
+    'tabel' : {
+        'name' : 'tabel',
+        'title': u'Grupa A',
     }
 }
-CHRONOLOGY=('home', 'mikroblog', 'matches', 'scores')
+CHRONOLOGY=('mikroblog', 'matches', 'matches_actual', 'tabel')
 
 _menu = [ MENU[name] for name in CHRONOLOGY ]
 

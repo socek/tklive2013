@@ -17,6 +17,9 @@ class MatchAdmin(admin.ModelAdmin):
     ]
     list_display = ('match_number','team_1', 'team_2', 'place')
     ordering = ['match_number']
+    
+    def save(self, commit =True):
+        print 'save'
 
 class TeamAdmin(admin.ModelAdmin):
     inlines = [PlayerInline]

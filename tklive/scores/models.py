@@ -78,6 +78,28 @@ class Match(models.Model):
     def team2_result(self):
         return self.get_result()[1]
     
+    def get_team_data(self, team):
+        result = self.get_result()
+        if team == self.team_1:
+            me = 0
+            enemy = 1
+        elif team == self.team_2:
+            me = 1
+            enemy = 0
+        
+        tab = {
+            'points' : result[me],
+        }
+        
+        if result[me] > result[enemy]:
+            tab['status'] = 'win'
+        elif result[me] == result[enemy]:
+            tab['status'] = 'draw'
+        else:
+            tab['status'] = 'lose'
+        
+        return tab
+    
     def get_result(self):
         t1_result = 0
         if self.quart_1_d1 != None:
@@ -89,12 +111,12 @@ class Match(models.Model):
                     if self.quart_4_d1 != None:
                         t1_result += self.quart_4_d1
         t2_result = 0
-        if self.quart_1_d1 != None:
+        if self.quart_1_d2 != None:
             t2_result += self.quart_1_d2
-            if self.quart_2_d1 != None:
+            if self.quart_2_d2 != None:
                 t2_result += self.quart_2_d2
-                if self.quart_3_d1 != None:
+                if self.quart_3_d2 != None:
                     t2_result += self.quart_3_d2
-                    if self.quart_4_d1 != None:
+                    if self.quart_4_d2 != None:
                         t2_result += self.quart_4_d2
         return t1_result, t2_result

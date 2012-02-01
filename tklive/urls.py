@@ -8,9 +8,11 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-     url(r'^$', main.HomeView.as_view(), name='home'),
-     url(r'^blog/$', mikroblog.BlogView.as_view(), name='blog'),
+     #url(r'^$', main.HomeView.as_view(), name='home'),
+     url(r'^$', mikroblog.BlogView.as_view(), name='blog'),
      url(r'^matches/$', scores.MatchesView.as_view(), name='matches'),
+     url(r'^matches/actual/$', scores.ActualMatchesView.as_view(), name='matches_actual'),
+     url(r'^tabel/a/$', scores.TabelView.as_view(), name='tabel'),
     # url(r'^mysite/', include('mysite.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
