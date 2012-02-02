@@ -40,6 +40,10 @@ class Tabel(models.Model):
     
     def get_nicename(self):
         return self.name.replace(' ','_').replace(u'ł', 'l').lower()
+    
+class Highscore(models.Model):
+    number = models.IntegerField(u'Miejsce')
+    team = models.OneToOneField(Team, unique=True,)
 
 match_status = (
     ('before', u'Nie rozpoczęto'),
@@ -65,7 +69,7 @@ class Match(models.Model):
     
     tabel = models.ForeignKey(Tabel)
     
-    match_number = models.IntegerField('Numer meczu')
+    match_number = models.IntegerField('Numer meczu', default=0)
     
     staus = models.CharField(u'Status', max_length=10, choices=match_status, default='before')
     date = models.DateTimeField(u'data meczu')

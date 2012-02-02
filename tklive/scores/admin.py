@@ -27,7 +27,12 @@ class TeamAdmin(admin.ModelAdmin):
 class PlaceAdmin(admin.ModelAdmin):
     pass
 
+class HighscoreAdmin(admin.ModelAdmin):
+    list_display = ['number', 'team']
+    ordering = ['number']
+
 admin.site.register(M.Match, MatchAdmin)
 admin.site.register(M.Team, TeamAdmin)
 admin.site.register(M.Place, PlaceAdmin)
 admin.site.register(M.Tabel)
+admin.site.register(M.Highscore, HighscoreAdmin)

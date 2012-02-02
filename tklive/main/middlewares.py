@@ -21,9 +21,13 @@ MENU = {
     'tabel' : {
         'name' : 'tabel',
         'title': u'Tabela grup',
+    },
+    'highscore' : {
+        'name' : 'highscore',
+        'title': u'Miejsca',
     }
 }
-CHRONOLOGY=('mikroblog', 'matches', 'matches_actual', 'tabel')
+CHRONOLOGY=('mikroblog', 'matches', 'matches_actual', 'tabel', 'highscore')
 
 _menu = [ MENU[name] for name in CHRONOLOGY ]
 

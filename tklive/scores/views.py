@@ -1,6 +1,6 @@
 # Create your views here.
 from django.views.generic.base import TemplateView
-from scores.models import Match, Tabel
+from scores.models import Match, Tabel, Team, Highscore
 from operator import itemgetter
 
 class MatchesView(TemplateView):
@@ -60,5 +60,30 @@ class TabelView(TemplateView):
         tabel = Tabel.objects.get(name='Grupa B')
         matches = Match.objects.order_by('date').filter(tabel=tabel).all()
         context['group_b'] = generate_data(matches)
+        
+        return context
+
+class HighscoreView(TemplateView):
+    template_name = "highscore.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super(HighscoreView, self).get_context_data(**kwargs)
+        
+        teams = {}
+        teams_all = Team.objects.all()
+        for team in teams_all:
+            try:
+                place = team.highscore.number
+                name = team.name
+                teams[place] = name
+            except Highscore.DoesNotExist:
+                pass
+        
+        for loop in range(len(teams_all)):
+            place = loop + 1
+            if not teams.has_key(place):
+                teams[place] = ''
+        
+        context['teams'] = teams
         
         return context
