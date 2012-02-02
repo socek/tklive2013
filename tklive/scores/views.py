@@ -23,34 +23,42 @@ class TabelView(TemplateView):
     template_name = 'tabel.html'
     
     def get_context_data(self, **kwargs):
+        def generate_data(matches):
+            teams = {}
+            for match in matches:
+                for team in [match.team_1, match.team_2]:
+                    if not teams.has_key(team.name):
+                        teams[team.name] = {
+                            'team': team,
+                            'score': 0,
+                            'small_score': 0,
+                            'matches': 0,
+                            'wins': 0,
+                        }
+                    tdata = teams[team.name]
+                    if match.staus == 'finished':
+                        tdata['matches'] += 1
+                        score = match.get_team_data(tdata['team'])
+                        tdata['small_score'] += score['points']
+                        if score['status'] == 'win':
+                            tdata['wins'] += 1
+                            tdata['score'] += 2
+                        elif score['status'] == 'draw':
+                            tdata['score'] += 1
+                
+            teams_list = [ team for key, team in teams.items() ]
+            teams_list.sort( key=itemgetter( 'score', 'matches',)  )
+            teams_list.reverse()
+            return teams_list
+        #####
         context = super(TabelView, self).get_context_data(**kwargs)
-        tabel = Tabel.objects.get(name='Grupa A')
-        context['matches'] = Match.objects.order_by('date').filter(tabel=tabel).all()
         
-        teams = {}
-        for match in context['matches']:
-            for team in [match.team_1, match.team_2]:
-                if not teams.has_key(team.name):
-                    teams[team.name] = {
-                        'team': team,
-                        'score': 0,
-                        'small_score': 0,
-                        'matches': 0,
-                        'wins': 0,
-                    }
-                tdata = teams[team.name]
-                if match.staus == 'finished':
-                    tdata['matches'] += 1
-                    score = match.get_team_data(tdata['team'])
-                    tdata['small_score'] += score['points']
-                    if score['status'] == 'win':
-                        tdata['wins'] += 1
-                        tdata['score'] += 2
-                    elif score['status'] == 'draw':
-                        tdata['score'] += 1
-            
-        context['teams'] = [ team for key, team in teams.items() ]
-        itemgetter('matches')
-        context['teams'].sort( key=itemgetter( 'score', 'matches',)  )
-        context['teams'].reverse()
+        tabel = Tabel.objects.get(name='Grupa A')
+        matches = Match.objects.order_by('date').filter(tabel=tabel).all()
+        context['group_a'] = generate_data(matches)
+        
+        tabel = Tabel.objects.get(name='Grupa B')
+        matches = Match.objects.order_by('date').filter(tabel=tabel).all()
+        context['group_b'] = generate_data(matches)
+        
         return context

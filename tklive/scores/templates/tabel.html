@@ -1,23 +1,5 @@
 {% extends "base.html" %}
 {% block body %}
-    <table border="1">
-        <tr>
-            <td>&nbsp;</td>
-            <td>Drużyna</td>
-            <td>Mecze</td>
-            <td>Zwycięstw</td>
-            <td>Punkty</td>
-            <td>Małe punkty</td>
-        </tr>
-        {% for team in teams %}
-            <tr>
-                <td>{{ forloop.counter }}</td>
-                <td>{{ team.team.name }}</td>
-                <td>{{ team.matches }}</td>
-                <td>{{ team.wins }}</td>
-                <td>{{ team.score }}</td>
-                <td>{{ team.small_score }}</td>
-            </tr>
-        {% endfor %}
-    </table>
+    {% include "tabel_groups.html" with name="Grupa A" teams=group_a %}
+    {% include "tabel_groups.html" with name="Grupa B" teams=group_b %}
 {% endblock %}  

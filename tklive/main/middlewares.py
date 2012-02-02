@@ -20,7 +20,7 @@ MENU = {
     },
     'tabel' : {
         'name' : 'tabel',
-        'title': u'Grupa A',
+        'title': u'Tabela grup',
     }
 }
 CHRONOLOGY=('mikroblog', 'matches', 'matches_actual', 'tabel')
