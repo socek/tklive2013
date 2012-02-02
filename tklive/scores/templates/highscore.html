@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block body %}
+    <table>
+        <tr>
+            <td>Miejsce</td>
+            <td>Nazwa drużyny</td>
+        </tr>
+        {% for place, team in teams.items %}
+            <tr>
+                <td>{{place}}</td>
+                <td>{{team}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}  
