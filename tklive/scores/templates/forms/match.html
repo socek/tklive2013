@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block body %}
+    <script type="text/javascript">
+        var countScore = function(team_number) {
+            var team_prefix = '#t' + team_number + '_';
+            var points_prefix = team_prefix + 'p_q';
+            var result_prefix = team_prefix + 'w_q';
+            
+            var points = [
+                parseInt( $(points_prefix + '1 input').val() ),
+                parseInt( $(points_prefix + '2 input').val() ),
+                parseInt( $(points_prefix + '3 input').val() ),
+                parseInt( $(points_prefix + '4 input').val() ),
+            ];
+            
+            var result = 0;
+            for (var loop = 0; loop < points.length; loop++) {
+                result += points[loop];
+                $(result_prefix + (loop+1)).text(result);
+            }
+            
+        };
+        $(function(){
+            $('.t1_inputs input').blur(function(){
+                countScore(1);
+            });
+            $('.t2_inputs input').blur(function(){
+                countScore(2);
+            });
+            countScore(1);
+            countScore(2);
+        });
+    </script>
+    
+    <form method="post">
+        {% csrf_token %}
+        {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+        {% endfor %}
+        
+        <table>
+            <tr>
+                <td>Nazwa drużyny</td>
+                <td>Kwarta 1</td>
+                <td>Kwarta 2</td>
+                <td>Kwarta 3</td>
+                <td>Kwarta 4</td>
+            </tr>
+            <tr class="t1_inputs">
+                <td>{{team_1}}</td>
+                <td><span id="t1_p_q1">{{form.visible_fields.0.errors}} {{form.visible_fields.0}}</span></td>
+                <td><span id="t1_p_q2">{{form.visible_fields.1.errors}} {{form.visible_fields.1}}</span></td>
+                <td><span id="t1_p_q3">{{form.visible_fields.2.errors}} {{form.visible_fields.2}}</span></td>
+                <td><span id="t1_p_q4">{{form.visible_fields.3.errors}} {{form.visible_fields.3}}</span></td>
+            </tr>
+            <tr>
+                <td>Wynik:</td>
+                <td><span id="t1_w_q1">0</span></td>
+                <td><span id="t1_w_q2">0</span></td>
+                <td><span id="t1_w_q3">0</span></td>
+                <td><span id="t1_w_q4">0</span></td>
+            </tr>
+            <tr class="t2_inputs">
+                <td>{{team_2}}</td>
+                <td><span id="t2_p_q1">{{form.visible_fields.4.errors}} {{form.visible_fields.4}}</span></td>
+                <td><span id="t2_p_q2">{{form.visible_fields.5.errors}} {{form.visible_fields.5}}</span></td>
+                <td><span id="t2_p_q3">{{form.visible_fields.6.errors}} {{form.visible_fields.6}}</span></td>
+                <td><span id="t2_p_q4">{{form.visible_fields.7.errors}} {{form.visible_fields.7}}</span></td>
+            </tr>
+            <tr>
+                <td>Wynik:</td>
+                <td><span id="t2_w_q1">0</span></td>
+                <td><span id="t2_w_q2">0</span></td>
+                <td><span id="t2_w_q3">0</span></td>
+                <td><span id="t2_w_q4">0</span></td>
+            </tr>
+        </table>
+        <div>
+            <p>{{form.visible_fields.7.errors}}</p>
+            Status meczu: {{form.visible_fields.8}}
+        </div>
+        <input type="submit" value="Zapisz" />
+    </form>
+{% endblock %}

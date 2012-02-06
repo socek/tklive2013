@@ -7,18 +7,14 @@ import scores.views as scores
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-     #url(r'^$', main.HomeView.as_view(), name='home'),
-     url(r'^$', mikroblog.BlogView.as_view(), name='blog'),
-     url(r'^matches/$', scores.MatchesView.as_view(), name='matches'),
-     url(r'^matches/actual/$', scores.ActualMatchesView.as_view(), name='matches_actual'),
-     url(r'^tabel/$', scores.TabelView.as_view(), name='tabel'),
-     url(r'^highscore/$', scores.HighscoreView.as_view(), name='highscore'),
-    # url(r'^mysite/', include('mysite.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
+    url(r'^$', mikroblog.BlogView.as_view(), name='blog'),
+    url(r'^matches/$', scores.MatchesView.as_view(), name='matches'),
+    url(r'^matches/actual/$', scores.ActualMatchesView.as_view(), name='matches_actual'),
+    url(r'^tabel/$', scores.TabelView.as_view(), name='tabel'),
+    url(r'^highscore/$', scores.HighscoreView.as_view(), name='highscore'),
     url(r'^admin/', include(admin.site.urls)),
+    
+    
+    url(r'^admin_match/$', scores.MatchesScoresView.as_view(), name='matches_admin'),
+    url(r'^forms/match/(\d)/$', scores.MatchScoresView.as_view(), name='form_match'),
 )

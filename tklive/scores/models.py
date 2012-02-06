@@ -54,15 +54,15 @@ match_status = (
 class Match(models.Model):
     place = models.ForeignKey(Place)
     
-    quart_1_d1 = models.IntegerField('Drużyna 1', blank=True, null=True)
-    quart_2_d1 = models.IntegerField('Drużyna 1', blank=True, null=True)
-    quart_3_d1 = models.IntegerField('Drużyna 1', blank=True, null=True)
-    quart_4_d1 = models.IntegerField('Drużyna 1', blank=True, null=True)
+    quart_1_d1 = models.IntegerField('Drużyna 1', default=0)
+    quart_2_d1 = models.IntegerField('Drużyna 1', default=0)
+    quart_3_d1 = models.IntegerField('Drużyna 1', default=0)
+    quart_4_d1 = models.IntegerField('Drużyna 1', default=0)
     
-    quart_1_d2 = models.IntegerField('Drużyna 2', blank=True, null=True)
-    quart_2_d2 = models.IntegerField('Drużyna 2', blank=True, null=True)
-    quart_3_d2 = models.IntegerField('Drużyna 2', blank=True, null=True)
-    quart_4_d2 = models.IntegerField('Drużyna 2', blank=True, null=True)
+    quart_1_d2 = models.IntegerField('Drużyna 2', default=0)
+    quart_2_d2 = models.IntegerField('Drużyna 2', default=0)
+    quart_3_d2 = models.IntegerField('Drużyna 2', default=0)
+    quart_4_d2 = models.IntegerField('Drużyna 2', default=0)
     
     team_1 = models.ForeignKey(Team, related_name='t1', blank=True, null=True)
     team_2 = models.ForeignKey(Team, related_name='t2', blank=True, null=True)
@@ -124,3 +124,7 @@ class Match(models.Model):
                     if self.quart_4_d2 != None:
                         t2_result += self.quart_4_d2
         return t1_result, t2_result
+
+    @models.permalink
+    def get_form_url(self):
+        return ('form_match', [self.id])

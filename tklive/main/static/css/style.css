@@ -58,10 +58,18 @@ ul.matches {
 ul.matches li {
     margin-top: 15px;
     border: solid 2px green;
+    display: inline-block;
 }
 ul.matches li div.pub_date {
     border-right: solid 2px green;
     border-bottom: solid 2px green;
+    float: left;
+    width: 100%;
+}
+
+ul.matches li div.admin {
+    border-right: solid 2px green;
+    /*border-bottom: solid 2px green;*/
     float: left;
     width: 100%;
 }

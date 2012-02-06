@@ -1,12 +1,29 @@
 {% load url from future %}
-<ul class="menu">
-    {% for element in MENU %}
-        {% if element.name == "" %}
-            <li class="notimplemented">{{ element.title }}</li>
-        {% else %}
-            <li {% if url_name == element.name %}class="active"{% endif %}>
-                <a href="{% url element.name %}">{{ element.title }}</a>
-            </li>
-        {% endif %}
-    {% endfor %}
-</ul>
+<div class="menus">
+    <ul class="menu">
+        {% for element in MENU %}
+            {% if element.name == "" %}
+                <li class="notimplemented">{{ element.title }}</li>
+            {% else %}
+                <li {% if url_name == element.name %}class="active"{% endif %}>
+                    <a href="{% url element.name %}">{{ element.title }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% if request.user.is_authenticated %}
+        <div style="float: left; margin-right: 5px;">Admin menu:</div>
+        <ul style="float: left;" class="menu">
+            {% for element in ADMIN_MENU %}
+                {% if element.name == "" %}
+                    <li class="notimplemented">{{ element.title }}</li>
+                {% else %}
+                    <li {% if url_name == element.name %}class="active"{% endif %}>
+                        <a href="{% url element.name %}">{{ element.title }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+<div style="clear: both;"></div>

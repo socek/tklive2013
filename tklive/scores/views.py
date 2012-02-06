@@ -2,6 +2,12 @@
 from django.views.generic.base import TemplateView
 from scores.models import Match, Tabel, Team, Highscore
 from operator import itemgetter
+from django.views.generic.edit import UpdateView
+from django.core.urlresolvers import resolve
+from scores.form import MatchForm
+from django.contrib.auth.decorators import permission_required
+from django.utils.decorators import method_decorator
+from django.http import Http404
 
 class MatchesView(TemplateView):
     template_name = "matches.html"
@@ -86,4 +92,43 @@ class HighscoreView(TemplateView):
         
         context['teams'] = teams
         
+        return context
+
+class MatchScoresView(UpdateView):
+    template_name = "forms/match.html"
+    form_class = MatchForm
+    
+    @property
+    def success_url(self):
+        return '/forms/match/' + self.args[0]
+    
+    def get_context_data(self, **kwargs):
+        context = super(MatchScoresView, self).get_context_data(**kwargs)
+        match = self.get_object()
+        
+        context['team_1'] = match.team_1.name
+        context['team_2'] = match.team_2.name
+        return context
+    
+    def get_object(self, queryset=None):
+        match_id = int(self.args[0])
+        return Match.objects.get(id=match_id)
+
+    def form_valid(self, form):
+        print 'valid'
+        return super(MatchScoresView, self).form_valid(form)
+   
+    def dispatch(self, *args, **kwargs):
+        request = args[0]
+        
+        if not request.user.has_perm('match.can_edit'):
+            raise Http404
+        return super(MatchScoresView, self).dispatch(*args, **kwargs)
+
+class MatchesScoresView(TemplateView):
+    template_name = "adminmatches.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(MatchesScoresView, self).get_context_data(**kwargs)
+        context['matches'] = Match.objects.order_by('date').all()
         return context
