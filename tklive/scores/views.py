@@ -1,6 +1,7 @@
-# Create your views here.
+# -*- encoding: utf-8 -*-
 from django.views.generic.base import TemplateView
 from scores.models import Match, Tabel, Team, Highscore
+from mikroblog.models import Post
 from operator import itemgetter
 from django.views.generic.edit import UpdateView
 from django.core.urlresolvers import resolve
@@ -115,7 +116,29 @@ class MatchScoresView(UpdateView):
         return Match.objects.get(id=match_id)
 
     def form_valid(self, form):
-        print 'valid'
+        user = self.request.user
+        match = form.instance
+        post = Post()
+        post.author = user
+        post.place = match.place
+        txt = u'''Zaktualizowano wynik meczu.<br />
+        %(team_1_name)s %(team_1_score)s - %(team_2_name)s %(team_2_score)s<br />
+        %(status)s
+        '''
+        tab = {
+            'team_1_name' : match.team_1.name,
+            'team_2_name' : match.team_2.name,
+            'team_1_score': match.team1_result,
+            'team_2_score': match.team2_result,
+        }
+        if match.staus == 'actual':
+            tab['status'] = u'Mecz w trakcie gry.'
+        elif match.staus == 'finished':
+            tab['status'] = u'Mecz został zakończony.'
+        else:
+            tab['status'] = ''
+        post.text = txt % tab    
+        post.save()
         return super(MatchScoresView, self).form_valid(form)
    
     def dispatch(self, *args, **kwargs):
