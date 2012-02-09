@@ -155,3 +155,13 @@ class MatchesScoresView(TemplateView):
         context = super(MatchesScoresView, self).get_context_data(**kwargs)
         context['matches'] = Match.objects.order_by('date').all()
         return context
+
+class MatchView(TemplateView):
+    template_name = "match_view.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super(MatchView, self).get_context_data(**kwargs)
+        match_id = int(self.args[0])
+        match = Match.objects.get(id=match_id)
+        context['match'] = match
+        return context

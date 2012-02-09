@@ -55,61 +55,61 @@ ul.matches {
     padding: 0;
     width:600px;
 }
-ul.matches li {
+div.match {
     margin-top: 15px;
     border: solid 2px green;
     display: inline-block;
 }
-ul.matches li div.pub_date {
+div.match div.pub_date {
     border-right: solid 2px green;
     border-bottom: solid 2px green;
     float: left;
     width: 100%;
 }
 
-ul.matches li div.admin {
+div.match div.admin {
     border-right: solid 2px green;
     /*border-bottom: solid 2px green;*/
     float: left;
     width: 100%;
 }
-ul.matches li div.pub_date.red {
+div.match div.pub_date.red {
     background-color: red;
 }
-ul.matches li div.pub_date.grey {
+div.match div.pub_date.grey {
     background-color: grey;
 }
-ul.matches li div.place {
+div.match div.place {
     border-right: solid 2px green;
     border-bottom: solid 2px green;
     clear: both;
     float: left;
     width: 502px;
 }
-ul.matches li div.tabel {
+div.match div.tabel {
     border-bottom: solid 2px green;
     float: left;
     width: 92px;
 }
-ul.matches li div.tabel.grupa_a {
+div.match div.tabel.grupa_a {
     background-color: green;
     color: white;
 }
-ul.matches li div.tabel.grupa_b {
+div.match div.tabel.grupa_b {
     background-color: yellow;
     
 }
-ul.matches li div.tabel.finaly {
+div.match div.tabel.finaly {
     background-color: red;
     color: yellow;
 }
-ul.matches li table.scores {
+div.match table.scores {
     /*border: solid 1px black;*/
     width: 100%;
 }
-ul.matches li table.scores td {
+div.match table.scores td {
     border: solid 1px black;
 }
-ul.matches li table.scores td.teamname {
+div.match table.scores td.teamname {
     width: 220px;
 }
