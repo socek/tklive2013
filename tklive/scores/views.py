@@ -144,7 +144,7 @@ class MatchScoresView(UpdateView):
     def dispatch(self, *args, **kwargs):
         request = args[0]
         
-        if not request.user.has_perm('match.can_edit'):
+        if not request.user.has_perm('scores.change_match'):
             raise Http404
         return super(MatchScoresView, self).dispatch(*args, **kwargs)
 
