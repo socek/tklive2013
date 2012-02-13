@@ -1,23 +1,54 @@
+/* Main */
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	background:#f8f8f8;
+}
+
+
+
+/* Place */
+
+div.place {
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#295177;
+	font-size:1.4em;
+}
+
+
+/* Date */
+div.pub_date {
+	font-size:0.7em;
+	padding:0 3px 0 0;
+	font-weight:bold;
+	text-transform:uppercase;
+	color:#295177;
+}
+
 ul.menu {
     list-style: none;
-    margin: 0 0 5px 0;
-    padding: 0;
+    margin: 0 0 5px 15px;
+    padding: 0 0 7px 0;
+		border-bottom:1px solid #ebebeb;
 }
 ul.menu li {
     display: inline;
-    border: double 1px black;
     margin: 0;
-    padding: 2px 5px;
-    color: black;
+    padding:5px 17px 5px 23px;
+    color: #1b1b1b;
+		border-left:1px solid #ebebeb;
+		text-transform:uppercase;
+		font-size:0.9em;
+
 }
 ul.menu li:hover {
-    background-color: green;
-    color: white;
+    color: #1072ad;
+		border-bottom:3px solid #70c0f0;
 }
 ul.menu li.active {
-    background-color: red;
-    color: yellow;
+		border-bottom:3px solid #57b2e8;
+		color:#1072ad;
 }
+
 ul.menu li a, ul.menu li a:active, ul.menu li a:visited{
     text-decoration: none;
     color: inherit;
@@ -35,8 +66,22 @@ ul.posts {
     width:600px;
 }
 ul.posts li {
-    margin-top: 15px;
-    border: solid 2px green;
+    margin-top: 25px;
+		padding:10px;
+    border:1px solid #dcf1fb;
+		background:#f8fafd;
+		-webkit-box-shadow: 2px 2px 2px 0px #d9e4f5;
+-moz-box-shadow: 2px 2px 2px 0px #d9e4f5;
+box-shadow: 2px 2px 2px 0px #d9e4f5;
+-moz-border-radius-topleft: 15px;
+-moz-border-radius-topright: 0px;
+-moz-border-radius-bottomright: 15px;
+-moz-border-radius-bottomleft: 0px;
+-webkit-border-radius: 15px 0px 15px 0px;
+border-radius: 15px 0px 15px 0px;
+
+
+
 }
 ul.posts li div.pub_date {
     float: right;
@@ -47,6 +92,9 @@ ul.posts li div.author {
 ul.posts li div.text {
     clear: both;
     padding: 5px 0 0 15px;
+		color:#4b4b4b;
+		line-height:1.6;
+		font-size:0.9em;
 }
 
 ul.matches {
@@ -57,14 +105,25 @@ ul.matches {
 }
 div.match {
     margin-top: 15px;
-    border: solid 2px green;
+		border:1px solid #d9e4f5; 
     display: inline-block;
 }
 div.match div.pub_date {
-    border-right: solid 2px green;
-    border-bottom: solid 2px green;
+
     float: left;
-    width: 100%;
+    width: 300px;
+		height:20px;
+		line-height:20px;
+		text-align:center;
+		-webkit-border-top-left-radius: 15px;
+		-webkit-border-bottom-right-radius: 15px;
+		-moz-border-radius-topleft: 15px;
+		-moz-border-radius-bottomright: 15px;
+		border-top-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+		margin-bottom:10px;
+		background:#5e8fbd;
+		color:#fff;
 }
 
 div.match div.admin {
@@ -74,42 +133,73 @@ div.match div.admin {
     width: 100%;
 }
 div.match div.pub_date.red {
-    background-color: red;
+    background-color: #e65f0e;
+		color:#fff;
 }
 div.match div.pub_date.grey {
     background-color: grey;
+		color:#fff;
 }
 div.match div.place {
-    border-right: solid 2px green;
-    border-bottom: solid 2px green;
     clear: both;
     float: left;
-    width: 502px;
+		font-size:1.2em;
+	padding-left:5px;
+	width:490px;
+	margin-bottom:10px;
 }
 div.match div.tabel {
-    border-bottom: solid 2px green;
     float: left;
     width: 92px;
 }
-div.match div.tabel.grupa_a {
-    background-color: green;
+div.tabel.grupa_a {
+    background-color: #14c5da;
     color: white;
+		font-size:0.8em;
+		font-weight:bold;
+		text-align:center;
+		text-transform:uppercase;
+		padding:2px;
+		-webkit-border-top-left-radius: 5px;
+-webkit-border-bottom-right-radius: 5px;
+-moz-border-radius-topleft: 5px;
+-moz-border-radius-bottomright: 5px;
+border-top-left-radius: 5px;
+border-bottom-right-radius: 5px;
 }
-div.match div.tabel.grupa_b {
-    background-color: yellow;
-    
+div.tabel.grupa_b {
+	color: white;
+		font-size:0.8em;
+		font-weight:bold;
+		text-align:center;
+		text-transform:uppercase;
+		padding:2px;
+    background-color: #76da14;
+				-webkit-border-top-left-radius: 5px;
+-webkit-border-bottom-right-radius: 5px;
+-moz-border-radius-topleft: 5px;
+-moz-border-radius-bottomright: 5px;
+border-top-left-radius: 5px;
+border-bottom-right-radius: 5px;
 }
+
+
+
 div.match div.tabel.finaly {
     background-color: red;
     color: yellow;
 }
-div.match table.scores {
-    /*border: solid 1px black;*/
+table.scores {
     width: 100%;
+		margin-top:10px;
+		color:#3b3b3b;
+		font-size:0.9em;
 }
-div.match table.scores td {
-    border: solid 1px black;
+table.scores td {
+	border:1px solid #dcf1fb;
 }
-div.match table.scores td.teamname {
+table.scores td.teamname {
     width: 220px;
+
+
 }
