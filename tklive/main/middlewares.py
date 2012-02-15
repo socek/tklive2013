@@ -24,7 +24,7 @@ MENU = {
     },
     'highscore' : {
         'name' : 'highscore',
-        'title': u'Miejsca',
+        'title': u'Ranking',
     }
 }
 
