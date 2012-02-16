@@ -3,7 +3,8 @@
 {% block body %}
     <ul class="matches admin">
         {% for match in matches%}
-            <li>
+            <li style="margin-top: 20px;">
+                <div class="tabel {{match.tabel.get_nicename}}">{{match.tabel.name}}</div>
                 {% if match.staus == "before" %}
                     <div class="pub_date">Data meczu: {{match.date}}</div>
                 {% else %}{% if match.staus == "actual" %}
@@ -12,7 +13,8 @@
                     <div class="pub_date grey">Zakończony</div>
                 {% endif %}{% endif %}{% endif %}
                 <div class="place">Miejsce: {{match.place.name}}</div>
-                <div class="tabel {{match.tabel.get_nicename}}">{{match.tabel.name}}</div>
+                <div class="teamname">{{match.team_1.name}}</div>
+                <div class="teamname">{{match.team_2.name}}</div>
                 <div class="admin"><a href="{{ match.get_form_url }}">Edytuj</a></div>
             </li>
         {% endfor %}
