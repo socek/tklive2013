@@ -10,32 +10,46 @@
     <div class="place">Miejsce: {{match.place.name}}</div>
     <div class="tabel {{match.tabel.get_nicename}}">{{match.tabel.name}}</div>
     {% if match.team_1 != None %}
-        <table class="scores">
-            <tr>
-                <td class="teamname">Drużyna</td>
-                <td>Kwarta 1</td>
-                <td>Kwarta 2</td>
-                <td>Kwarta 3</td>
-                <td>Kwarta 4</td>
-                <td>Wynik</td>
-            </tr>
-            <tr>
-                <td class="teamname">{{match.team_1.name}}</td>
-                <td>{{match.quart_1_d1}}</td>
-                <td>{{match.quart_2_d1}}</td>
-                <td>{{match.quart_3_d1}}</td>
-                <td>{{match.quart_4_d1}}</td>
-                <td>{{match|team1_result:4}}</td>
-            </tr>
-            <tr>
-                <td class="teamname">{{match.team_2.name}}</td>
-                <td>{{match.quart_1_d2}}</td>
-                <td>{{match.quart_2_d2}}</td>
-                <td>{{match.quart_3_d2}}</td>
-                <td>{{match.quart_4_d2}}</td>
-                <td>{{match|team2_result:4}}</td>
-            </tr>
-        </table>
+        {% if match.staus == "before" %}
+            <table class="scores">
+                <tr>
+                    <td class="teamname">Drużyna</td>
+                </tr>
+                <tr>
+                    <td class="teamname">{{match.team_1.name}}</td>
+                </tr>
+                <tr>
+                    <td class="teamname">{{match.team_2.name}}</td>
+                </tr>
+            </table>
+        {% else %}
+            <table class="scores">
+                <tr>
+                    <td class="teamname">Drużyna</td>
+                    <td>Kwarta 1</td>
+                    <td>Kwarta 2</td>
+                    <td>Kwarta 3</td>
+                    <td>Kwarta 4</td>
+                    <td>Wynik</td>
+                </tr>
+                <tr>
+                    <td class="teamname">{{match.team_1.name}}</td>
+                    <td>{{match.quart_1_d1}}</td>
+                    <td>{{match.quart_2_d1}}</td>
+                    <td>{{match.quart_3_d1}}</td>
+                    <td>{{match.quart_4_d1}}</td>
+                    <td>{{match|team1_result:4}}</td>
+                </tr>
+                <tr>
+                    <td class="teamname">{{match.team_2.name}}</td>
+                    <td>{{match.quart_1_d2}}</td>
+                    <td>{{match.quart_2_d2}}</td>
+                    <td>{{match.quart_3_d2}}</td>
+                    <td>{{match.quart_4_d2}}</td>
+                    <td>{{match|team2_result:4}}</td>
+                </tr>
+            </table>
+        {% endif %}
     {% else %}
         Drużyny jeszcze nie znane.
     {% endif %}
