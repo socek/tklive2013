@@ -11,5 +11,5 @@ if __name__ == '__main__':
         author_email='msocek@gmail.com',
         license='?',
         packages=find_packages(),
-        install_requires=["django==1.3.1", "south", 'ipdb']
+        install_requires=["django==1.3.1", "south", 'ipdb', 'MySQL-python']
     )

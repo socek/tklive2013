@@ -16,7 +16,7 @@ class Migration(SchemaMigration):
             ('default_place', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['scores.Place'], null=True)),
         ))
         db.send_create_signal('main', ['UserProfile'])
-        User.objects.create_superuser(u"admin", u"team.red.dragon@codepill.com", u"admin")
+#        User.objects.create_superuser(u"admin", u"team.red.dragon@codepill.com", u"admin")
 
 
     def backwards(self, orm):
