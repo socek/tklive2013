@@ -18,29 +18,28 @@ class Migration(DataMigration):
             'b' : M.Tabel.objects.get(name=u'Grupa B'),
             'f' : M.Tabel.objects.get(name=u'Finały'),
         }
-        
+
         teams = {
             'przyjaciele': M.Team.objects.get(name=u'Przyjaciele szymona'),
             'nauczyciele': M.Team.objects.get(name=u'Nauczyciele'),
-            'kutna': M.Team.objects.get(name=u'Kuta Hora'),
+            'samorzad' : M.Team.objects.get(name=u'Drużyna Samorzadowców'),
+            'kutna': M.Team.objects.get(name=u'Kutna Hora'),
             'bekescaba': M.Team.objects.get(name=u'Bekescaba'),
             'bernburg': M.Team.objects.get(name=u'Bernburg'),
             'machina': M.Team.objects.get(name=u'MACHINA AG Rolbud'),
             'boguszow': M.Team.objects.get(name=u'Boguszów Gorce'),
             'serock': M.Team.objects.get(name=u'Serock'),
-            'tgteam': M.Team.objects.get(name=u'T.G. Team'),
-            'hef': M.Team.objects.get(name=u'HEF Lubliniec'),
+            'tgteam': M.Team.objects.get(name=u'Kopuła T.G. Team'),
         }
 
-        loop = 0
         tabs = []
         tabs.append({
             'match_number'  : 1,
             'place'         : 'stas',
             'tabel'         : 'a',
             'tt1'           : 'przyjaciele',
-            'tt2'           : 'kutna',
-            'date'          : datetime.datetime(2012, 3, 1, 17, 15),
+            'tt2'           : 'samorzad',
+            'date'          : datetime.datetime(2013, 2, 28, 17, 15),
         })
         tabs.append({
             'match_number'  : 2,
@@ -48,199 +47,199 @@ class Migration(DataMigration):
             'tabel'         : 'a',
             'tt1'           : 'nauczyciele',
             'tt2'           : 'bekescaba',
-            'date'          : datetime.datetime(2012, 3, 1, 18, 45),
+            'date'          : datetime.datetime(2013, 2, 28, 18, 45),
         })
-        
+
         tabs.append({
             'match_number'  : 3,
             'place'         : 'stas',
             'tabel'         : 'a',
             'tt1'           : 'przyjaciele',
             'tt2'           : 'bernburg',
-            'date'          : datetime.datetime(2012, 3, 1, 20, 15),
+            'date'          : datetime.datetime(2013, 2, 28, 20, 15),
         })
-        
+
         tabs.append({
             'match_number'  : 4,
             'place'         : 'radzionkow',
             'tabel'         : 'b',
-            'tt1'           : 'machina',
-            'tt2'           : 'boguszow',
-            'date'          : datetime.datetime(2012, 3, 1, 18, 00),
+            'tt1'           : 'boguszow',
+            'tt2'           : 'kutna',
+            'date'          : datetime.datetime(2013, 2, 28, 18, 00),
         })
-        
+
         tabs.append({
             'match_number'  : 5,
             'place'         : 'radzionkow',
             'tabel'         : 'b',
             'tt1'           : 'serock',
             'tt2'           : 'tgteam',
-            'date'          : datetime.datetime(2012, 3, 1, 19, 30),
+            'date'          : datetime.datetime(2013, 2, 28, 19, 30),
         })
-        
+
         tabs.append({
             'match_number'  : 6,
-            'place'         : 'stas',
-            'tabel'         : 'a',
-            'tt1'           : 'nauczyciele',
-            'tt2'           : 'kutna',
-            'date'          : datetime.datetime(2012, 3, 2, 9, 00),
+            'place'         : 'radzionkow',
+            'tabel'         : 'b',
+            'tt1'           : 'machina',
+            'tt2'           : 'boguszow',
+            'date'          : datetime.datetime(2013, 3, 1, 21, 00),
         })
-        
+
         tabs.append({
             'match_number'  : 7,
             'place'         : 'stas',
             'tabel'         : 'a',
-            'tt1'           : 'bekescaba',
-            'tt2'           : 'bernburg',
-            'date'          : datetime.datetime(2012, 3, 2, 10, 30),
+            'tt1'           : 'nauczyciele',
+            'tt2'           : 'samorzad',
+            'date'          : datetime.datetime(2013, 3, 1, 9, 00),
         })
-        
+
         tabs.append({
             'match_number'  : 8,
             'place'         : 'stas',
             'tabel'         : 'a',
-            'tt1'           : 'nauczyciele',
-            'tt2'           : 'przyjaciele',
-            'date'          : datetime.datetime(2012, 3, 2, 12, 00),
+            'tt1'           : 'bekescaba',
+            'tt2'           : 'bernburg',
+            'date'          : datetime.datetime(2013, 3, 1, 10, 30),
         })
-        
+
         tabs.append({
             'match_number'  : 9,
             'place'         : 'stas',
             'tabel'         : 'a',
-            'tt1'           : 'kutna',
-            'tt2'           : 'bekescaba',
-            'date'          : datetime.datetime(2012, 3, 2, 13, 30),
+            'tt1'           : 'nauczyciele',
+            'tt2'           : 'przyjaciele',
+            'date'          : datetime.datetime(2013, 3, 1, 12, 00),
         })
-        
+
         tabs.append({
             'match_number'  : 10,
             'place'         : 'stas',
             'tabel'         : 'a',
-            'tt1'           : 'nauczyciele',
-            'tt2'           : 'bernburg',
-            'date'          : datetime.datetime(2012, 3, 2, 15, 30),
+            'tt1'           : 'samorzad',
+            'tt2'           : 'bekescaba',
+            'date'          : datetime.datetime(2013, 3, 1, 13, 30),
         })
-        
+
         tabs.append({
             'match_number'  : 11,
             'place'         : 'stas',
             'tabel'         : 'a',
-            'tt1'           : 'bekescaba',
-            'tt2'           : 'przyjaciele',
-            'date'          : datetime.datetime(2012, 3, 2, 17, 00),
+            'tt1'           : 'nauczyciele',
+            'tt2'           : 'bernburg',
+            'date'          : datetime.datetime(2013, 3, 1, 15, 30),
         })
-        
+
         tabs.append({
             'match_number'  : 12,
             'place'         : 'stas',
             'tabel'         : 'a',
-            'tt1'           : 'bernburg',
-            'tt2'           : 'kutna',
-            'date'          : datetime.datetime(2012, 3, 2, 18, 30),
+            'tt1'           : 'bekescaba',
+            'tt2'           : 'przyjaciele',
+            'date'          : datetime.datetime(2013, 3, 1, 17, 00),
         })
-        
+
         tabs.append({
             'match_number'  : 13,
-            'place'         : 'radzionkow',
-            'tabel'         : 'b',
-            'tt1'           : 'machina',
-            'tt2'           : 'hef',
-            'date'          : datetime.datetime(2012, 3, 2,  9, 00),
+            'place'         : 'stas',
+            'tabel'         : 'a',
+            'tt1'           : 'bernburg',
+            'tt2'           : 'samorzad',
+            'date'          : datetime.datetime(2013, 3, 1, 18, 30),
         })
-        
+
         tabs.append({
             'match_number'  : 14,
             'place'         : 'radzionkow',
             'tabel'         : 'b',
-            'tt1'           : 'boguszow',
-            'tt2'           : 'serock',
-            'date'          : datetime.datetime(2012, 3, 2, 10, 30),
+            'tt1'           : 'machina',
+            'tt2'           : 'kutna',
+            'date'          : datetime.datetime(2013, 3, 1,  9, 00),
         })
-        
+
         tabs.append({
             'match_number'  : 15,
             'place'         : 'radzionkow',
             'tabel'         : 'b',
-            'tt1'           : 'hef',
-            'tt2'           : 'tgteam',
-            'date'          : datetime.datetime(2012, 3, 2, 12, 20),
+            'tt1'           : 'boguszow',
+            'tt2'           : 'serock',
+            'date'          : datetime.datetime(2013, 3, 1, 10, 30),
         })
-        
+
         tabs.append({
             'match_number'  : 16,
             'place'         : 'radzionkow',
             'tabel'         : 'b',
-            'tt1'           : 'machina',
-            'tt2'           : 'serock',
-            'date'          : datetime.datetime(2012, 3, 2, 13, 50),
+            'tt1'           : 'kutna',
+            'tt2'           : 'tgteam',
+            'date'          : datetime.datetime(2013, 3, 1, 12, 20),
         })
-        
+
         tabs.append({
             'match_number'  : 17,
             'place'         : 'radzionkow',
             'tabel'         : 'b',
-            'tt1'           : 'tgteam',
-            'tt2'           : 'boguszow',
-            'date'          : datetime.datetime(2012, 3, 2, 16, 00),
+            'tt1'           : 'machina',
+            'tt2'           : 'serock',
+            'date'          : datetime.datetime(2013, 3, 1, 13, 50),
         })
-        
+
         tabs.append({
             'match_number'  : 18,
             'place'         : 'radzionkow',
             'tabel'         : 'b',
-            'tt1'           : 'hef',
-            'tt2'           : 'serock',
-            'date'          : datetime.datetime(2012, 3, 2, 17, 30),
+            'tt1'           : 'tgteam',
+            'tt2'           : 'boguszow',
+            'date'          : datetime.datetime(2013, 3, 1, 16, 00),
         })
-        
+
         tabs.append({
             'match_number'  : 19,
             'place'         : 'radzionkow',
             'tabel'         : 'b',
-            'tt1'           : 'machina',
-            'tt2'           : 'tgteam',
-            'date'          : datetime.datetime(2012, 3, 2, 19, 00),
+            'tt1'           : 'kutna',
+            'tt2'           : 'serock',
+            'date'          : datetime.datetime(2013, 3, 1, 17, 30),
         })
-        
+
         tabs.append({
             'match_number'  : 20,
             'place'         : 'radzionkow',
             'tabel'         : 'b',
-            'tt1'           : 'boguszow',
-            'tt2'           : 'hef',
-            'date'          : datetime.datetime(2012, 3, 2, 20, 25),
+            'tt1'           : 'machina',
+            'tt2'           : 'tgteam',
+            'date'          : datetime.datetime(2013, 3, 1, 19, 00),
         })
-        
+
         tabs.append({
             'match_number'  : 21,
             'place'         : 'stas',
             'tabel'         : 'f',
-            'date'          : datetime.datetime(2012, 3, 3,  9, 00),
+            'date'          : datetime.datetime(2013, 3, 2,  9, 00),
         })
-        
+
         tabs.append({
             'match_number'  : 22,
             'place'         : 'stas',
             'tabel'         : 'f',
-            'date'          : datetime.datetime(2012, 3, 3, 11, 30),
+            'date'          : datetime.datetime(2013, 3, 2, 11, 30),
         })
-        
+
         tabs.append({
             'match_number'  : 23,
             'place'         : 'stas',
             'tabel'         : 'f',
-            'date'          : datetime.datetime(2012, 3, 3, 14, 00),
+            'date'          : datetime.datetime(2013, 3, 2, 14, 00),
         })
-        
+
         tabs.append({
             'match_number'  : 24,
             'place'         : 'stas',
             'tabel'         : 'f',
-            'date'          : datetime.datetime(2012, 3, 3, 16, 00),
+            'date'          : datetime.datetime(2013, 3, 2, 16, 00),
         })
-        
+
         for object in tabs:
             m = M.Match()
             m.match_number = object['match_number']

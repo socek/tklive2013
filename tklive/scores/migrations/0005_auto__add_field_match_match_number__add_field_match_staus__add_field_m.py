@@ -15,7 +15,7 @@ class Migration(SchemaMigration):
         db.add_column('scores_match', 'staus', self.gf('django.db.models.fields.CharField')(default='before', max_length=10), keep_default=False)
 
         # Adding field 'Match.date'
-        db.add_column('scores_match', 'date', self.gf('django.db.models.fields.DateTimeField')(default=0), keep_default=False)
+        db.add_column('scores_match', 'date', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime.now()), keep_default=False)
 
         # Changing field 'Match.team_1'
         db.alter_column('scores_match', 'team_1_id', self.gf('django.db.models.fields.related.ForeignKey')(null=True, to=orm['scores.Team']))

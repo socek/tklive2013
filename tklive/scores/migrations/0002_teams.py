@@ -14,7 +14,7 @@ class Migration(DataMigration):
         },{
             'name' : u'Nauczyciele',
         },{
-            'name' : u'Kuta Hora',
+            'name' : u'Drużyna Samorzadowców',
         },{
             'name' : u'Bekescaba',
         },{
@@ -26,9 +26,9 @@ class Migration(DataMigration):
         },{
             'name' : u'Serock',
         },{
-            'name' : u'T.G. Team',
+            'name' : u'Kopuła T.G. Team',
         },{
-            'name' : u'HEF Lubliniec',
+            'name' : u'Kutna Hora',
         }]:
             team = M.Team(**tab)
             team.save()
